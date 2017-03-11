@@ -17,6 +17,8 @@
       <li><a href="http://vue-loader.vuejs.org/" target="_blank">vue-loader</a></li>
       <li><a href="https://github.com/vuejs/awesome-vue" target="_blank">awesome-vue</a></li>
     </ul>
+
+    <button type="button" name="button" @click="test()">test</button>
   </div>
 </template>
 
@@ -26,6 +28,14 @@ export default {
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
+    }
+  },
+  methods:{
+    test (){
+      //this.$store.commit('increment',5)
+      this.$store.dispatch('increment',10)
+      //console.log(this.$store.state.moduleA.count)
+      // this.$store.dispatch('incrementB',10)
     }
   }
 }
