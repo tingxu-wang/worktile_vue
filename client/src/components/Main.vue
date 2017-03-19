@@ -1,11 +1,15 @@
 <template lang="html">
   <div class="">
-    <h1>test</h1>
+    <panel></panel>
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
+import panel from './left-panel/index.vue'
+
 export default {
+  components:{panel}
 }
 </script>
 

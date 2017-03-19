@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "iview": "^2.0.0-rc.2",
+    "jQuery": "^1.7.4",
     "vue": "^2.2.1",
     "vue-router": "^2.2.0"
   },
