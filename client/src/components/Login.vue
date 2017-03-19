@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    <Slider v-model="value" range></Slider>
+    login
   </div>
 </template>
 
