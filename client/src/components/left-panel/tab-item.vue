@@ -1,7 +1,7 @@
 <template lang="html">
 <li>
   <span class="panel-tab text-center" :class="{panelTabActive:isActive}" @click="clicked()">
-    <i :class="iconName" class="panel-icon"></i>
+    <i :class="iconName" class="glyphicon panel-icon"></i>
     <div>{{ tabName }}</div>
   </span>
 </li>
@@ -14,7 +14,7 @@ export default {
       this.$emit('has-clicked',this.index)
     },
     changeRouterPath (){
-      
+
     },
     clicked (){
       this.emitMsg()//发送数据到父组件

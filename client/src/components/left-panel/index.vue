@@ -1,58 +1,84 @@
 <template lang="html">
-<div class="left-panel">
-  <div class="left-menu">
-    <div class="left-menu-tab">
-      <div class="left-menu-top">
-        <div class="left-panel-tab-wrap">
-          <ul class="left-panel-tab">
-            <tab-item v-for="(tabProp,index) in tabProps" :icon-name="tabProp.iconName" :tab-name="tabProp.tabName" :is-active="tabProp.isActive" :router-name="tabProp.routerName" :index="index" v-on:has-clicked="changeTabActive"></tab-item>
-          </ul>
+  <div class="left-panel">
+    <div class="left-menu">
+      <div class="left-menu-tab">
+        <div class="left-menu-top">
+          <div class="left-panel-tab-wrap">
+            <ul class="left-panel-tab">
+              <tab-item v-for="(tabProp,index) in tabProps" :icon-name="tabProp.iconName" :tab-name="tabProp.tabName" :is-active="tabProp.isActive" :router-name="tabProp.routerName" :index="index" v-on:has-clicked="changeTabActive"></tab-item>
+            </ul>
+          </div>
         </div>
-      </div>
-      <div class="left-panel-footer">
-        <div class="quick-add">
-          <i class="glyphicon glyphicon-plus"></i>
+        <div class="left-panel-footer">
+          <div class="quick-add" @click="quickAdd">
+            <i class="glyphicon glyphicon-plus"></i>
+          </div>
+          <div class="user-setting" @click="openUserSetting">
+            庭旭
+          </div>
+          <user-setting :user-box-is-show="userBoxIsShow"></user-setting>
         </div>
-        <div class="user-setting">
-          庭旭
-        </div>
+        <pop-box :pop-box-is-show="popBoxIsShow" :user-setting-is-show="userBoxIsShow"></pop-box>
       </div>
     </div>
   </div>
-</div>
 </template>
 
 <script>
-import tabItem from './tab-item'
+  import tabItem from './tab-item'
+  import popBox from './pop-box'
+  import userSetting from './user-setting'
 
-export default {
-  data (){
-    return {
-      tabProps:[
-        {iconName:'glyphicon glyphicon-user',tabName:'我的',isActive:true,routerName:'dashboard'},
-        {iconName:'glyphicon glyphicon-search',tabName:'搜索',isActive:false,routerName:'search'},
-        {iconName:'glyphicon glyphicon-envelope',tabName:'消息',isActive:false,routerName:'messages'},
-        {iconName:'glyphicon glyphicon-folder-open',tabName:'项目',isActive:false,routerName:null},
-      ]
-    }
-  },
-  methods:{
-    changeTabActive (tabIndex){//点击tab时更换样式
-      this.tabProps.map((item,index)=>{
-        if(index===tabIndex){
-          item.isActive=true
-        }else{
-          item.isActive=false
+  export default {
+    data (){
+      return {
+        tabProps:[
+          {iconName:'glyphicon-dashboard',tabName:'我的',isActive:true,routerName:'dashboard'},
+          {iconName:'glyphicon-search',tabName:'搜索',isActive:false,routerName:'search'},
+          {iconName:'glyphicon-envelope',tabName:'消息',isActive:false,routerName:'messages'},
+          {iconName:'glyphicon-folder-open',tabName:'项目',isActive:false,routerName:null},
+        ],
+        popBoxIsShow:false,
+        userBoxIsShow:false
+      }
+    },
+    methods:{
+      changeTabActive (tabIndex){//点击tab时更换样式
+        this.tabProps.map((item,index)=>{
+          if(index===tabIndex){
+            item.isActive=true
+          }else{
+            item.isActive=false
+          }
+        })
+      },
+      togglePopBoxActive (){
+        this.popBoxIsShow=!this.popBoxIsShow
+      },
+      toggleUserBoxActive (){
+        this.userBoxIsShow=!this.userBoxIsShow
+      },
+      quickAdd (){
+        if(this.userBoxIsShow){
+          this.toggleUserBoxActive()
         }
-      })
+        this.togglePopBoxActive()
+      },
+      openUserSetting (){
+        if(this.popBoxIsShow){//弹窗打开时关闭
+          this.togglePopBoxActive()
+        }
+        this.toggleUserBoxActive()
+      }
+    },
+    components:{
+      tabItem,
+      popBox,
+      userSetting
     }
-  },
-  components:{
-    tabItem
   }
-}
 </script>
-<style lang="scss" scoped>
+<style lang="scss">
 .left-panel{
   width:60px;
   height:100%;
@@ -125,6 +151,46 @@ export default {
     font-size: 14px;
     line-height: 40px;
     margin:0 auto 15px;
+  }
+}
+
+$boxBgColor:#fff;
+.popbox{
+  position:absolute;
+  display: block;
+  left: 61px;
+  min-width: 252px;
+  max-width:400px;
+  text-align: left;
+  background-color: $boxBgColor;
+  border: 1px solid #eeece8;
+  box-shadow: 0 2px 8px rgba(0,0,0,.2);
+  color:#484744;
+}
+.popbox-menu{
+  padding: 5px;
+  margin-bottom: 0px;
+}
+.popbox-li{
+  list-style: none;
+  padding:8px 30px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &:hover{
+    background: #f1ede5;
+  }
+}
+.divider{
+  border: 0;
+  border-top: solid 1px #e8edf3;
+  margin: 0;
+  padding: 0;
+  cursor: default;
+  height: 1px;
+
+  &:hover{
+    background: $boxBgColor;
   }
 }
 </style>
