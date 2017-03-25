@@ -5,7 +5,7 @@
         <div class="left-menu-top">
           <div class="left-panel-tab-wrap">
             <ul class="left-panel-tab">
-              <tab-item v-for="(tabProp,index) in tabProps" :icon-name="tabProp.iconName" :tab-name="tabProp.tabName" :is-active="tabProp.isActive" :router-name="tabProp.routerName" :index="index" v-on:has-clicked="changeTabActive"></tab-item>
+              <tab-item v-for="(tabProp,index) in tabProps" :icon-name="tabProp.iconName" :tab-name="tabProp.tabName" :is-active="tabProp.isActive" :router-name="tabProp.routerName" :index="index"></tab-item>
             </ul>
           </div>
         </div>
@@ -33,25 +33,16 @@
     data (){
       return {
         tabProps:[
-          {iconName:'glyphicon-dashboard',tabName:'我的',isActive:true,routerName:'dashboard'},
-          {iconName:'glyphicon-search',tabName:'搜索',isActive:false,routerName:'search'},
-          {iconName:'glyphicon-envelope',tabName:'消息',isActive:false,routerName:'messages'},
-          {iconName:'glyphicon-folder-open',tabName:'项目',isActive:false,routerName:null},
+          {iconName:'glyphicon-dashboard',tabName:'我的',routerName:'mission'},
+          {iconName:'glyphicon-search',tabName:'搜索',routerName:'search'},
+          {iconName:'glyphicon-envelope',tabName:'消息',routerName:'messages'},
+          {iconName:'glyphicon-folder-open',tabName:'项目',routerName:'project'},
         ],
         popBoxIsShow:false,
         userBoxIsShow:false
       }
     },
     methods:{
-      changeTabActive (tabIndex){//点击tab时更换样式
-        this.tabProps.map((item,index)=>{
-          if(index===tabIndex){
-            item.isActive=true
-          }else{
-            item.isActive=false
-          }
-        })
-      },
       togglePopBoxActive (){
         this.popBoxIsShow=!this.popBoxIsShow
       },

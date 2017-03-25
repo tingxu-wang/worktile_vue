@@ -9,19 +9,24 @@
 
 <script>
 export default {
+  computed:{
+    isActive (){
+      if(this.routerName===this.$route.name){
+        return true
+      }
+      return false
+    }
+  },
   methods:{
-    emitMsg (){
-      this.$emit('has-clicked',this.index)
-    },
     changeRouterPath (){
-
+      const _this=this
+      this.$router.push({name:_this.routerName})
     },
     clicked (){
-      this.emitMsg()//发送数据到父组件
       this.changeRouterPath()//更改路由
     }
   },
-  props:['iconName','tabName','isActive','index','routerName']
+  props:['iconName','tabName','index','routerName']
 }
 </script>
 
