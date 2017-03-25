@@ -7,9 +7,19 @@ import resource from 'vue-resource'
 
 import {store} from './store/store.js'
 
+import {MyPlugin} from './plugin/index.js'
+
 Vue.config.productionTip = false
 
 Vue.use(resource)
+Vue.use(MyPlugin)
+
+router.beforeEach((to,from,next)=>{
+  // console.log(to)
+  store.dispatch('refreshRouterLevel',to.path)
+  store.dispatch('refreshRouterName')
+  next()
+})
 
 /* eslint-disable no-new */
 new Vue({

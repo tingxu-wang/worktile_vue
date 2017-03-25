@@ -33,7 +33,7 @@
     data (){
       return {
         tabProps:[
-          {iconName:'glyphicon-dashboard',tabName:'我的',routerName:'mission'},
+          {iconName:'glyphicon-dashboard',tabName:'我的',routerName:'dashboard'},
           {iconName:'glyphicon-search',tabName:'搜索',routerName:'search'},
           {iconName:'glyphicon-envelope',tabName:'消息',routerName:'messages'},
           {iconName:'glyphicon-folder-open',tabName:'项目',routerName:'project'},

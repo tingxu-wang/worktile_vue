@@ -10,7 +10,7 @@
       <div class="center-menu">
         <ul>
           <li v-for="menuItem in navbarInfo.menuItems">
-            <a href="" :class="{active:isActive(menuItem.routerName)}">{{ menuItem.name }}</a>
+            <router-link :class="{active:isActive(menuItem.routerName)}" :to="menuItem.routerName">{{ menuItem.name }}</router-link>
           </li>
         </ul>
       </div>
@@ -21,14 +21,17 @@
 <script>
 export default {
   computed:{
+    secondRouterName (){
+      return this.$store.state.routerLevel[1]
+    },
     navbarInfo (){
-      switch(this.$route.name){
-        case 'mission':
+      switch(this.secondRouterName){
+        case 'dashboard':
           return {
             iconName:'glyphicon-dashboard',
             title:'我的工作台',
             menuItems:[
-              {name:'任务',routerName:'dashboard'},
+              {name:'任务',routerName:'mission'},
               {name:'动态',routerName:'moments'}
             ]
           }
@@ -38,7 +41,7 @@ export default {
   },
   methods:{
     isActive (itemRouterName){
-      if(this.$route.name===itemRouterName){
+      if(this.$store.state.thirdRouterName===itemRouterName){
         return true
       }
       return false

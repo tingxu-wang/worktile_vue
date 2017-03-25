@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    dashboard
+    moments
   </div>
 </template>
 

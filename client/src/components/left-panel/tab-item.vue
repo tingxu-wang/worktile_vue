@@ -1,6 +1,6 @@
 <template lang="html">
 <li>
-  <span class="panel-tab text-center" :class="{panelTabActive:isActive}" @click="clicked()">
+  <span class="panel-tab text-center" :class="{panelTabActive:isActive}" @click="changeRouterPath()">
     <i :class="iconName" class="glyphicon panel-icon"></i>
     <div>{{ tabName }}</div>
   </span>
@@ -11,7 +11,7 @@
 export default {
   computed:{
     isActive (){
-      if(this.routerName===this.$route.name){
+      if(this.$store.state.secondRouterName===this.routerName){
         return true
       }
       return false
@@ -19,11 +19,7 @@ export default {
   },
   methods:{
     changeRouterPath (){
-      const _this=this
-      this.$router.push({name:_this.routerName})
-    },
-    clicked (){
-      this.changeRouterPath()//更改路由
+      this.$router.push({name:this.routerName})
     }
   },
   props:['iconName','tabName','index','routerName']
