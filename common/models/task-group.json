@@ -1,30 +1,29 @@
 {
-  "name": "Person",
+  "name": "Task_group",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
+    "project_id": {
+      "type": "number",
+      "required": true
+    },
     "name": {
       "type": "string",
       "required": true
     },
-    "phone": {
-      "type": "string",
-      "required": true
-    },
-    "password": {
-      "type": "string",
-      "required": true
+    "index": {
+      "type": "number"
     }
   },
   "validations": [],
   "relations": {
-    "person_has_groups": {
+    "tasks": {
       "type": "hasMany",
-      "model": "Person_has_group",
-      "foreignKey": "person_id"
+      "model": "Task",
+      "foreignKey": "task_group_id"
     }
   },
   "acls": [],

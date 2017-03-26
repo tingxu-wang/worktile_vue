@@ -5,7 +5,7 @@
         <div class="left-menu-top">
           <div class="left-panel-tab-wrap">
             <ul class="left-panel-tab">
-              <tab-item v-for="(tabProp,index) in tabProps" :icon-name="tabProp.iconName" :tab-name="tabProp.tabName" :is-active="tabProp.isActive" :router-name="tabProp.routerName" :index="index"></tab-item>
+              <tab-item v-for="(tabProp,index) in tabProps" :key="index" :icon-name="tabProp.iconName" :tab-name="tabProp.tabName" :is-active="tabProp.isActive" :router-name="tabProp.routerName" :index="index"></tab-item>
             </ul>
           </div>
         </div>

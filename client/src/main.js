@@ -15,7 +15,6 @@ Vue.use(resource)
 Vue.use(MyPlugin)
 
 router.beforeEach((to,from,next)=>{
-  // console.log(to)
   store.dispatch('refreshRouterLevel',to.path)
   store.dispatch('refreshRouterName')
   next()

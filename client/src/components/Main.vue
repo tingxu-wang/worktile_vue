@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="main">
     <panel></panel>
     <div class="center-panel">
       <headNavbar></headNavbar>
@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import panel from './left-panel/index.vue'
+import panel from './left-panel/left-panel.vue'
 import headNavbar from './head-navbar.vue'
 
 export default {
@@ -28,17 +28,21 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.main{
+  height:100%;
+}
 .layout_content{
   position: relative;
   height:100%;
 }
 .center-panel{
   height: 100%;
+  background: #F8F6F2;
   margin-right: 0;
   margin-left: 60px;
   position: relative;
 }
 .center-panel-content{
-  height: 100%;
+  padding-top: 7px;
 }
 </style>

@@ -6,7 +6,7 @@
     "lint": "eslint .",
     "start": "node .",
     "posttest": "npm run lint && nsp check",
-    "dev":"pm2-dev start ."
+    "dev": "pm2-dev start ."
   },
   "dependencies": {
     "compression": "^1.0.3",

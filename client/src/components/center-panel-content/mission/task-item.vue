@@ -1,0 +1,126 @@
+<template lang="html">
+  <div class="task clearfix">
+    <div class="task-title-container">
+      <div class="radio-box">
+        <input type="checkbox">
+      </div>
+      <div class="task-title">task-title</div>
+      <div class="task-badges">
+        <div class="task-badge">
+          <i class="glyphicon glyphicon-pushpin"></i>
+          项目名称
+        </div>
+      </div>
+      <div class="task-members">
+        <div class="task-member-item">
+          <div class="task-member-face">
+            <div class="task-member-text">
+              庭旭
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style lang="scss" scoped>
+.task{
+  margin-bottom: 4px;
+  border: solid 1px #e8e8ea;
+  position: relative;
+  border-bottom: solid 1px #e1e1e5;
+  background: #fff;
+  min-height: 46px;
+  padding-bottom: 2px;
+  line-height: 20px;
+  cursor: pointer;
+
+  .task-title-container{
+    position: relative;
+    padding: 11px 0 3px 0;
+
+    .radio-box{
+      display: block;
+      position: absolute;
+      left: 4px;
+      top: 6px;
+      width: 25px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      color: #e1ddd5;
+      font-size: 18px;
+
+    }
+    .task-title{
+      display: block;
+      word-wrap: break-word;
+      white-space: normal;
+      line-height: 21px;
+      font-size: 14px;
+      color: #484744;
+      margin: 0 24px 0 32px;
+    }
+    .task-badges{
+      float: left;
+      margin: 0 8px 0 28px;
+      white-space: normal;
+
+      .task-badge{
+        color: #acaba7;
+        border-radius: 3px;
+        -webkit-text-size-adjust: none;
+        font-size: 11px;
+        display: inline-block;
+        line-height: 27px;
+        padding: 0;
+        margin-right: 7px;
+        margin-left: 0;
+      }
+    }
+    .task-members{
+      float: right;
+      padding: 0 8px;
+
+      .task-member-item{
+        margin-left: 5px;
+        margin-bottom: 5px;
+        float: right;
+        position: relative;
+        display: inline-block;
+        zoom: 1;
+
+
+        .task-member-face{
+          display: inline-block;
+          position: relative;
+          zoom: 1;
+
+          .task-member-text{
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            font-size: 10px;
+            text-align: center;
+            overflow: hidden;
+            display: inline-block;
+            zoom: 1;
+            vertical-align: middle;
+            background: #64b1ca;
+            border: solid 1px #64b1ca;
+            font-size: 10px;
+            border-radius: 50%;
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
+}
+</style>

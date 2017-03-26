@@ -1,32 +1,30 @@
 {
-  "name": "Person",
+  "name": "Document",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "properties": {
-    "name": {
+    "project_id": {
+      "type": "number",
+      "required": true
+    },
+    "content": {
       "type": "string",
       "required": true
     },
-    "phone": {
-      "type": "string",
+    "person_id": {
+      "type": "number",
       "required": true
     },
-    "password": {
+    "person_name": {
       "type": "string",
       "required": true
     }
   },
   "validations": [],
-  "relations": {
-    "person_has_groups": {
-      "type": "hasMany",
-      "model": "Person_has_group",
-      "foreignKey": "person_id"
-    }
-  },
+  "relations": {},
   "acls": [],
   "methods": {}
 }

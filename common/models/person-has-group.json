@@ -1,0 +1,22 @@
+{
+  "name": "Person_has_group",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "person_id": {
+      "type": "number",
+      "required": true
+    },
+    "group_id": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

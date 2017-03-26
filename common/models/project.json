@@ -1,0 +1,41 @@
+{
+  "name": "Project",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "group_id": {
+      "type": "number",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "documents": {
+      "type": "hasMany",
+      "model": "Document",
+      "foreignKey": "project_id"
+    },
+    "moments": {
+      "type": "hasMany",
+      "model": "Moment",
+      "foreignKey": "project_id"
+    },
+    "task_groups": {
+      "type": "hasMany",
+      "model": "Task_group",
+      "foreignKey": "project_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

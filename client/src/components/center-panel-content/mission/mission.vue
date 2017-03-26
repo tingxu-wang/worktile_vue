@@ -1,11 +1,14 @@
 <template lang="html">
   <div>
-    mission
+    <mission-group></mission-group>
   </div>
 </template>
 
 <script>
+import missionGroup from './mission-group.vue'
+
 export default {
+  components:{missionGroup}
 }
 </script>
 

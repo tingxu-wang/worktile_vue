@@ -21,11 +21,8 @@
 <script>
 export default {
   computed:{
-    secondRouterName (){
-      return this.$store.state.routerLevel[1]
-    },
     navbarInfo (){
-      switch(this.secondRouterName){
+      switch(this.$store.state.secondRouterName){
         case 'dashboard':
           return {
             iconName:'glyphicon-dashboard',
@@ -33,6 +30,33 @@ export default {
             menuItems:[
               {name:'任务',routerName:'mission'},
               {name:'动态',routerName:'moments'}
+            ]
+          }
+        break;
+        case 'search':
+          return {
+            iconName:'glyphicon-search',
+            title:'搜索',
+            menuItems:[
+            ]
+          }
+        break;
+        case 'messages':
+          return {
+            iconName:'glyphicon-envelope',
+            title:'消息中心',
+            menuItems:[
+              {name:'未读',routerName:'unread'},
+              {name:'待处理',routerName:'pending'},
+              {name:'已读',routerName:'readed'}
+            ]
+          }
+        break;
+        case 'project':
+          return {
+            iconName:'glyphicon-folder-open',
+            title:'项目一览',
+            menuItems:[
             ]
           }
         break;
@@ -79,7 +103,7 @@ export default {
         display: inline-block;
         color: #333;
         margin-right: 7px;
-        font-weight: 500;
+        font-weight: 400;
         max-width: 100%;
         overflow: hidden;
         white-space: nowrap;
@@ -128,8 +152,14 @@ export default {
             text-decoration: none;
 
             &.active{
-              color: #da4f4a;
+              $activeColor:#da4f4a;
+
+              color: $activeColor;
               border-bottom-color: #da4f4a;
+
+              &:hover{
+                color: $activeColor;
+              }
             }
             &:hover{
               color: #484744;

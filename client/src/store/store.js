@@ -9,7 +9,7 @@ const store=new Vuex.Store({
     arr:[1,2,3],
     routerLevel:[],
     secondRouterName:'',
-    thiredRouterName:''
+    thirdRouterName:''
   },
   getters:{
     getArrLength:state =>state.arr.length

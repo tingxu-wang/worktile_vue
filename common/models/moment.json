@@ -1,0 +1,42 @@
+{
+  "name": "Moment",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "project_id": {
+      "type": "number",
+      "required": true
+    },
+    "person_id": {
+      "type": "number",
+      "required": true
+    },
+    "person_name": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "number",
+      "required": true
+    },
+    "task_id": {
+      "type": "number",
+      "required": true
+    },
+    "task_name": {
+      "type": "string",
+      "required": true
+    },
+    "create_time": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

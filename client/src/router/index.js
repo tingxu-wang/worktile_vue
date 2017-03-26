@@ -4,7 +4,7 @@ import Router from 'vue-router'
 import Login from '@/components/Login'
 import Main from '@/components/Main'
 
-import mission from '@panelContent/mission.vue'
+import mission from '@panelContent/mission/mission.vue'
 import messages from '@panelContent/messages.vue'
 import project from '@panelContent/project.vue'
 import search from '@panelContent/search.vue'

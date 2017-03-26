@@ -38,5 +38,37 @@
   "Person": {
     "dataSource": "db",
     "public": true
+  },
+  "Person_has_group": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Group": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Project": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Moment": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Task_group": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Document": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Task": {
+    "dataSource": "db",
+    "public": true
+  },
+  "Comment": {
+    "dataSource": "db",
+    "public": true
   }
 }
