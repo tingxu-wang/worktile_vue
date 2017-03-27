@@ -4,13 +4,19 @@
     "AccessToken": 1,
     "ACL": 1,
     "RoleMapping": 1,
-    "Role": 1
+    "Role": 1,
+    "Person": 4
   },
   "models": {
     "User": {},
     "AccessToken": {},
     "ACL": {},
     "RoleMapping": {},
-    "Role": {}
+    "Role": {},
+    "Person": {
+      "1": "{\"name\":\"1\",\"phone\":\"1\",\"password\":\"1\",\"id\":1}",
+      "2": "{\"name\":\"王庭旭\",\"phone\":\"15801183454\",\"password\":\"qwaa1234\",\"id\":2}",
+      "3": "{\"name\":\"黎特\",\"phone\":\"123\",\"password\":\"qwer1234\",\"id\":3}"
+    }
   }
 }

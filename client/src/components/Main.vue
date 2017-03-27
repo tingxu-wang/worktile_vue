@@ -37,7 +37,6 @@ export default {
 }
 .center-panel{
   height: 100%;
-  background: #F8F6F2;
   margin-right: 0;
   margin-left: 60px;
   position: relative;

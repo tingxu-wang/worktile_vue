@@ -3,12 +3,13 @@ import Router from 'vue-router'
 
 import Login from '@/components/Login'
 import Main from '@/components/Main'
+import Regist from '@/components/Regist'
 
-import mission from '@panelContent/mission/mission.vue'
-import messages from '@panelContent/messages.vue'
-import project from '@panelContent/project.vue'
-import search from '@panelContent/search.vue'
-import moments from '@panelContent/moments.vue'
+import mission from '@panelContent/mission/mission'
+import messages from '@panelContent/messages'
+import project from '@panelContent/project'
+import search from '@panelContent/search'
+import moments from '@panelContent/moments'
 
 Vue.use(Router)
 
@@ -22,6 +23,11 @@ export default new Router({
       path:'/login',
       name:'login',
       component: Login
+    },
+    {
+      path:'/regist',
+      name:'regist',
+      component: Regist
     },
     {
       path:'/main',
