@@ -3,6 +3,12 @@
     <div class="left-menu">
       <div class="left-menu-tab">
         <div class="left-menu-top">
+          <div class="left-panel-top-wrap">
+            <div class="left-panel-top">
+              <i class="glyphicon glyphicon-th-large"></i>
+            </div>
+            <group-review :is-show="groupIsShow"></group-review>
+          </div>
           <div class="left-panel-tab-wrap">
             <ul class="left-panel-tab">
               <tab-item v-for="(tabProp,index) in tabProps" :key="index" :icon-name="tabProp.iconName" :tab-name="tabProp.tabName" :is-active="tabProp.isActive" :router-name="tabProp.routerName" :index="index"></tab-item>
@@ -25,49 +31,52 @@
 </template>
 
 <script>
-  import tabItem from './tab-item'
-  import popBox from './pop-box'
-  import userSetting from './user-setting'
+import tabItem from './tab-item'
+import popBox from './pop-box'
+import userSetting from './user-setting'
+import groupReview from './group-review'
 
-  export default {
-    data (){
-      return {
-        tabProps:[
-          {iconName:'glyphicon-dashboard',tabName:'我的',routerName:'dashboard'},
-          {iconName:'glyphicon-search',tabName:'搜索',routerName:'search'},
-          {iconName:'glyphicon-envelope',tabName:'消息',routerName:'messages'},
-          {iconName:'glyphicon-folder-open',tabName:'项目',routerName:'project'},
-        ],
-        popBoxIsShow:false,
-        userBoxIsShow:false
-      }
+export default {
+  data (){
+    return {
+      tabProps:[
+        {iconName:'glyphicon-dashboard',tabName:'我的',routerName:'dashboard'},
+        {iconName:'glyphicon-search',tabName:'搜索',routerName:'search'},
+        {iconName:'glyphicon-envelope',tabName:'消息',routerName:'messages'},
+        {iconName:'glyphicon-folder-open',tabName:'项目',routerName:'project'},
+      ],
+      popBoxIsShow:false,
+      userBoxIsShow:false,
+      groupIsShow:true
+    }
+  },
+  methods:{
+    togglePopBoxActive (){
+      this.popBoxIsShow=!this.popBoxIsShow
     },
-    methods:{
-      togglePopBoxActive (){
-        this.popBoxIsShow=!this.popBoxIsShow
-      },
-      toggleUserBoxActive (){
-        this.userBoxIsShow=!this.userBoxIsShow
-      },
-      quickAdd (){
-        if(this.userBoxIsShow){
-          this.toggleUserBoxActive()
-        }
-        this.togglePopBoxActive()
-      },
-      openUserSetting (){
-        if(this.popBoxIsShow){//弹窗打开时关闭
-          this.togglePopBoxActive()
-        }
+    toggleUserBoxActive (){
+      this.userBoxIsShow=!this.userBoxIsShow
+    },
+    quickAdd (){
+      if(this.userBoxIsShow){
         this.toggleUserBoxActive()
       }
+      this.togglePopBoxActive()
     },
-    components:{
-      tabItem,
-      popBox,
-      userSetting
+    openUserSetting (){
+      if(this.popBoxIsShow){//弹窗打开时关闭
+        this.togglePopBoxActive()
+      }
+      this.toggleUserBoxActive()
     }
+  },
+  components:{
+    tabItem,
+    popBox,
+    userSetting,
+    groupReview
   }
+}
 </script>
 <style lang="scss">
 .left-panel{
@@ -95,6 +104,17 @@
   }
   .left-menu-top{
     text-align: center;
+
+    .left-panel-top-wrap{
+      text-align: center;
+
+      .left-panel-top{
+        font-size: 25px;
+        color: #fff;
+        padding: 15px 0 8px;
+        cursor: pointer;
+      }
+    }
   }
   .left-panel-tab-wrap{
     position: absolute;
@@ -149,7 +169,7 @@ $boxBgColor:#fff;
 .popbox{
   position:absolute;
   display: block;
-  left: 61px;
+  left: 60px;
   min-width: 252px;
   max-width:400px;
   text-align: left;
@@ -162,8 +182,10 @@ $boxBgColor:#fff;
   padding: 5px;
   margin-bottom: 0px;
 }
-.popbox-li{
+li{
   list-style: none;
+}
+.popbox-li{
   padding:8px 30px;
   cursor: pointer;
   border-radius: 5px;

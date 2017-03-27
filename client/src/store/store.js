@@ -9,7 +9,11 @@ const store=new Vuex.Store({
     arr:[1,2,3],
     routerLevel:[],
     secondRouterName:'',
-    thirdRouterName:''
+    thirdRouterName:'',
+    isLogin:false,
+    userName:'',
+    userId:null,
+    phone:''
   },
   getters:{
     getArrLength:state =>state.arr.length
@@ -30,6 +34,12 @@ const store=new Vuex.Store({
       if(leventLength>1){
         state.thirdRouterName=routerLevel[2]
       }
+    },
+    login (state,infoObj){
+      state.userName=infoObj.name
+      state.userId=infoObj.id
+      state.phone=infoObj.phone
+      state.isLogin=true
     }
   },
   actions:{
@@ -41,6 +51,9 @@ const store=new Vuex.Store({
     },
     refreshRouterName ({commit}){
       commit('refreshRouterName')
+    },
+    login ({commit},infoObj){
+      commit('login',infoObj)
     }
   }
 })

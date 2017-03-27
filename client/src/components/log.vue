@@ -13,7 +13,7 @@
     </div>
     <div class="footer">
       <span>作者：王庭旭</span>
-      <span>本项目<a href="https://github.com/tingxu-wang/worktile_vue" target="_blank">github</a>地址</span>
+      <span>本项目<a href="https://github.com/tingxu-wang/worktile_vue" target="_blank">github地址</a></span>
     </div>
   </div>
 </template>
