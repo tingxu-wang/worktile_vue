@@ -23,7 +23,8 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      '@panelContent': path.join(__dirname,'..','src/components/center-panel-content')
+      '@panelContent': path.join(__dirname,'..','src/components/center-panel-content'),
+      '@pub': path.join(__dirname,'..','src/components/pub')
     }
   },
   module: {

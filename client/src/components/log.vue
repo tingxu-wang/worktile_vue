@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import alertDanger from './alert'
+import alertDanger from './pub/alert'
 export default {
   components:{alertDanger},
   props:['errMsg']

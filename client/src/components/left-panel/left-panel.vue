@@ -100,7 +100,7 @@ export default {
     top: 0;
     bottom: 0;
     width: 60px;
-    z-index: 10;
+    z-index: 4;
   }
   .left-menu-top{
     text-align: center;
