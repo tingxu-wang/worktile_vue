@@ -7,6 +7,10 @@ MyPlugin.install=function(Vue){
     })
     return result
   }
+
+  Vue.prototype.$getFromSession=function(key){
+    return sessionStorage.getItem(key)
+  }
 }
 
 export {MyPlugin}

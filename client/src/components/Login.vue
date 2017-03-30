@@ -42,11 +42,12 @@ export default {
           .then(({status,body})=>{
             if(status===200){
               if(body.length===1){//已注册
-                this.$store.dispatch('login',body[0])
-                // let infoObj=body[0]
-                // sessionStorage.setItem('userName',infoObj.name)
-                // sessionStorage.setItem('phone',infoObj.phone)
-                // sessionStorage.setItem('userId',infoObj.id)
+                // this.$store.dispatch('login',body[0])
+                let infoObj=body[0]
+                sessionStorage.setItem('userName',infoObj.name)
+                sessionStorage.setItem('phone',infoObj.phone)
+                sessionStorage.setItem('userId',infoObj.id)
+                sessionStorage.setItem('isLogin',true)
                 this.$router.push({name:'main'})
               }else{
                 this.errMsg='用户名或密码错误'

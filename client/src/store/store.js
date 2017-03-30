@@ -8,6 +8,7 @@ const store=new Vuex.Store({
     count:0,
     arr:[1,2,3],
     routerLevel:[],
+    firstRouterName:'',
     secondRouterName:'',
     thirdRouterName:'',
     isLogin:false,
@@ -28,10 +29,14 @@ const store=new Vuex.Store({
     refreshRouterName (state){
       let routerLevel=state.routerLevel
       const leventLength=routerLevel.length
+
       if(leventLength>0) {
-        state.secondRouterName=routerLevel[1]
+        state.firstRouterName=routerLevel[0]
       }
       if(leventLength>1){
+        state.secondRouterName=routerLevel[1]
+      }
+      if(leventLength>2){
         state.thirdRouterName=routerLevel[2]
       }
     },

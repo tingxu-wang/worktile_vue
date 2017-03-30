@@ -20,11 +20,50 @@ router.beforeEach((to,from,next)=>{
   next()
 })
 
+router.beforeEach((to,from,next)=>{//检测是否登录
+  const isLogin=sessionStorage.getItem('isLogin'),
+    firstRouterName=store.state.firstRouterName
+  // if(isLogin && firstRouterName==='login'){
+  //   next(false)
+  // }else if(isLogin && firstRouterName!=='login'){
+  //   next()
+  // }else if(!isLogin && firstRouterName==='login'){
+  //   next()
+  // }else
+  if(!isLogin && firstRouterName!=='login'){
+    next({name:'login'})
+  }else{
+    next()
+  }
+})
+
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   store,
   template: '<App/>',
-  components: { App }
+  components: { App },
+
+  created (){
+    console.log('created')
+  },
+  beforeMount (){
+    console.log('beforeMount')
+  },
+  mounted (){
+    console.log('mounted')
+  },
+  beforeDestroy (){
+    console.log('beforeDestroy')
+  },
+  destroyed (){
+    console.log('destroyed')
+  },
+  updated (){
+    console.log('updated')
+  },
+  beforeUpdate (){
+    console.log('beforeUpdate')
+  }
 })

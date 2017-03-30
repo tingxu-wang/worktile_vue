@@ -25,18 +25,18 @@ export default {
     hook (curVal){
       let modal=this.$refs.modal,
         $modal=$(modal)
-      //if(curVal){
-        $modal.modal('show')
-        $modal.after($('.modal-backdrop'))
-      //}
-      // console.log('run')
-      // $modal.on('hidden.bs.modal',()=>{
-      //   this.$emit(this.emitName)
-      //   $modal.off()
-      // })
+
+      $modal.modal('show')
+      $modal.after($('.modal-backdrop'))
+      if(this.emitName){
+        $modal.on('hidden.bs.modal',()=>{
+          this.$emit(this.emitName)
+          $modal.off()
+        })
+      }
     }
   },
-  props:['hook']
+  props:['hook','emitName']//hook:弹窗是否显示钩子 emitName:弹窗关闭时发送的事件名称
 }
 </script>
 
