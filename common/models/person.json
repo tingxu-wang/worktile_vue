@@ -6,7 +6,19 @@
     "validateUpsert": true
   },
   "properties": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "secondName": {
+      "type": "string",
+      "required": true
+    },
     "name": {
+      "type": "string",
+      "required": true
+    },
+    "headName": {
       "type": "string",
       "required": true
     },

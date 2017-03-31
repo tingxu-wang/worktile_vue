@@ -1,7 +1,7 @@
 <template lang="html">
   <log :err-msg="errMsg">
     <div class="form-group">
-      <input type="text" class="form-control" v-model="formInfo.name" placeholder="用户名">
+      <input type="text" class="form-control" v-model="formInfo.phone" placeholder="电话号码">
     </div>
     <div class="form-group">
       <input type="password" class="form-control" v-model="formInfo.password" placeholder="密码">
@@ -22,7 +22,7 @@ export default {
     return {
       errMsg:'',
       formInfo:{
-        name:'',
+        phone:'',
         password:''
       }
     }
@@ -44,10 +44,7 @@ export default {
               if(body.length===1){//已注册
                 // this.$store.dispatch('login',body[0])
                 let infoObj=body[0]
-                sessionStorage.setItem('userName',infoObj.name)
-                sessionStorage.setItem('phone',infoObj.phone)
-                sessionStorage.setItem('userId',infoObj.id)
-                sessionStorage.setItem('isLogin',true)
+                this.$saveLoginInfo(infoObj)
                 this.$router.push({name:'main'})
               }else{
                 this.errMsg='用户名或密码错误'

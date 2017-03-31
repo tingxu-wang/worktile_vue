@@ -21,8 +21,8 @@
     "description": {
       "type": "string"
     },
-    "name": {
-      "type": "string",
+    "user_ids": {
+      "type": "array",
       "required": true
     }
   },

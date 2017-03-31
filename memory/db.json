@@ -5,7 +5,9 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Person": 4
+    "Person": 4,
+    "Group": 5,
+    "Person_has_group": 7
   },
   "models": {
     "User": {},
@@ -14,9 +16,17 @@
     "RoleMapping": {},
     "Role": {},
     "Person": {
-      "1": "{\"name\":\"1\",\"phone\":\"1\",\"password\":\"1\",\"id\":1}",
-      "2": "{\"name\":\"王庭旭\",\"phone\":\"15801183454\",\"password\":\"qwaa1234\",\"id\":2}",
-      "3": "{\"name\":\"黎特\",\"phone\":\"123\",\"password\":\"qwer1234\",\"id\":3}"
+      "1": "{\"firstName\":\"王\",\"secondName\":\"庭旭\",\"name\":\"王庭旭\",\"headName\":\"庭旭\",\"phone\":\"1\",\"password\":\"qwaa1234\",\"id\":1}",
+      "2": "{\"firstName\":\"蒋\",\"secondName\":\"圆\",\"name\":\"蒋圆\",\"headName\":\"蒋圆\",\"phone\":\"2\",\"password\":\"qwaa1234\",\"id\":2}",
+      "3": "{\"firstName\":\"黎\",\"secondName\":\"特\",\"name\":\"黎特\",\"headName\":\"黎特\",\"phone\":\"3\",\"password\":\"qwaa1234\",\"id\":3}"
+    },
+    "Group": {
+      "4": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1490952248594\",\"user_ids\":[2,3,1],\"name\":\"bilibili\",\"id\":4}"
+    },
+    "Person_has_group": {
+      "4": "{\"person_id\":2,\"group_id\":4,\"id\":4}",
+      "5": "{\"person_id\":3,\"group_id\":4,\"id\":5}",
+      "6": "{\"person_id\":1,\"group_id\":4,\"id\":6}"
     }
   }
 }

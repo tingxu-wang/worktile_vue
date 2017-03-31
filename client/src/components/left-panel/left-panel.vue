@@ -4,7 +4,7 @@
       <div class="left-menu-tab">
         <div class="left-menu-top">
           <div class="left-panel-top-wrap">
-            <div class="left-panel-top">
+            <div class="left-panel-top" @click="toggleGroupActive">
               <i class="glyphicon glyphicon-th-large"></i>
             </div>
             <group-review :is-show="groupIsShow"></group-review>
@@ -19,8 +19,8 @@
           <div class="quick-add" @click="quickAdd">
             <i class="glyphicon glyphicon-plus"></i>
           </div>
-          <div class="user-setting" @click="openUserSetting">
-            庭旭
+          <div class="user-setting g-user-head" @click="openUserSetting">
+            {{ headName }}
           </div>
           <user-setting :user-box-is-show="userBoxIsShow"></user-setting>
         </div>
@@ -47,7 +47,12 @@ export default {
       ],
       popBoxIsShow:false,
       userBoxIsShow:false,
-      groupIsShow:true
+      groupIsShow:false
+    }
+  },
+  computed:{
+    headName (){
+      return this.$getValFromSessionObj('userInfo','headName')
     }
   },
   methods:{
@@ -56,6 +61,9 @@ export default {
     },
     toggleUserBoxActive (){
       this.userBoxIsShow=!this.userBoxIsShow
+    },
+    toggleGroupActive(){
+      this.groupIsShow=!this.groupIsShow
     },
     quickAdd (){
       if(this.userBoxIsShow){
@@ -155,13 +163,6 @@ export default {
   .user-setting{
     width:40px;
     height:40px;
-    cursor:pointer;
-    border-radius: 30px;
-    background: #64b1ca;
-    color:#fff;
-    font-size: 14px;
-    line-height: 40px;
-    margin:0 auto 15px;
   }
 }
 

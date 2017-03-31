@@ -1,7 +1,10 @@
 <template lang="html">
   <log :err-msg="errMsg">
     <div class="form-group">
-      <input type="text" class="form-control" v-model="formInfo.name" placeholder="用户名">
+      <input type="text" class="form-control" v-model="formInfo.firstName" placeholder="姓">
+    </div>
+    <div class="form-group">
+      <input type="text" class="form-control" v-model="formInfo.secondName" placeholder="名">
     </div>
     <div class="form-group">
       <input type="phone" class="form-control" v-model="formInfo.phone" placeholder="电话号码">
@@ -28,7 +31,8 @@ export default {
     return {
       errMsg:'',
       formInfo:{
-        name:'',
+        firstName:'',
+        secondName:'',
         phone:'', 
         password:'',
         confirmPassword:''
@@ -62,9 +66,22 @@ export default {
       })
     },
     postInfo (){
-      this.$http.post('/api/People',{name:this.formInfo.name,phone:this.formInfo.phone,password:this.formInfo.password})
+      let postInfo={
+        firstName:this.formInfo.firstName,
+        secondName:this.formInfo.secondName,
+        name:this.formInfo.firstName+this.formInfo.secondName,
+        phone:this.formInfo.phone,password:this.formInfo.password,
+        headName:''
+      }
+      if(postInfo.secondName.length>1){
+        postInfo.headName=postInfo.secondName
+      }else{
+        postInfo.headName=postInfo.name
+      }
+      this.$http.post('/api/People',postInfo)
         .then(({status,body})=>{
           if(status===200){
+            this.$saveLoginInfo(body)
             this.$router.push({name:'main'})
           }
         })
@@ -79,8 +96,8 @@ export default {
           .then(({status,body})=>{
             if(status===200){
               let personInfo=body[0]
-              if(personInfo && personInfo.name===this.formInfo.name){
-                this.errMsg='该用户名已注册！'
+              if(personInfo && personInfo.phone===this.formInfo.phone){
+                this.errMsg='该手机号已注册！'
               }else{
                 this.postInfo()
               }

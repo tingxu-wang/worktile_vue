@@ -30,7 +30,7 @@ router.beforeEach((to,from,next)=>{//检测是否登录
   // }else if(!isLogin && firstRouterName==='login'){
   //   next()
   // }else
-  if(!isLogin && firstRouterName!=='login'){
+  if(!isLogin && firstRouterName!=='login' && firstRouterName!=='regist'){
     next({name:'login'})
   }else{
     next()
