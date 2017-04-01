@@ -23,13 +23,7 @@ router.beforeEach((to,from,next)=>{
 router.beforeEach((to,from,next)=>{//检测是否登录
   const isLogin=sessionStorage.getItem('isLogin'),
     firstRouterName=store.state.firstRouterName
-  // if(isLogin && firstRouterName==='login'){
-  //   next(false)
-  // }else if(isLogin && firstRouterName!=='login'){
-  //   next()
-  // }else if(!isLogin && firstRouterName==='login'){
-  //   next()
-  // }else
+    
   if(!isLogin && firstRouterName!=='login' && firstRouterName!=='regist'){
     next({name:'login'})
   }else{

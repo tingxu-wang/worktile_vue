@@ -6,8 +6,8 @@
     "RoleMapping": 1,
     "Role": 1,
     "Person": 4,
-    "Group": 5,
-    "Person_has_group": 7
+    "Group": 7,
+    "Person_has_group": 13
   },
   "models": {
     "User": {},
@@ -21,12 +21,20 @@
       "3": "{\"firstName\":\"黎\",\"secondName\":\"特\",\"name\":\"黎特\",\"headName\":\"黎特\",\"phone\":\"3\",\"password\":\"qwaa1234\",\"id\":3}"
     },
     "Group": {
-      "4": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1490952248594\",\"user_ids\":[2,3,1],\"name\":\"bilibili\",\"id\":4}"
+      "4": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1490952248594\",\"user_ids\":[2,3,1],\"name\":\"bilibili\",\"id\":4}",
+      "5": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1491061270189\",\"user_ids\":[2,3,1],\"name\":\"零度可乐\",\"id\":5}",
+      "6": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1491062182633\",\"user_ids\":[2,3,1],\"name\":\"没有蛀牙\",\"id\":6}"
     },
     "Person_has_group": {
       "4": "{\"person_id\":2,\"group_id\":4,\"id\":4}",
       "5": "{\"person_id\":3,\"group_id\":4,\"id\":5}",
-      "6": "{\"person_id\":1,\"group_id\":4,\"id\":6}"
+      "6": "{\"person_id\":1,\"group_id\":4,\"id\":6}",
+      "7": "{\"person_id\":2,\"group_id\":5,\"id\":7}",
+      "8": "{\"person_id\":3,\"group_id\":5,\"id\":8}",
+      "9": "{\"person_id\":1,\"group_id\":5,\"id\":9}",
+      "10": "{\"person_id\":2,\"group_id\":6,\"id\":10}",
+      "11": "{\"person_id\":3,\"group_id\":6,\"id\":11}",
+      "12": "{\"person_id\":1,\"group_id\":6,\"id\":12}"
     }
   }
 }

@@ -6,10 +6,10 @@
           <span>我的团队</span>
         </li>
         <li class="divider"></li>
-        <li class="popbox-li">
-          <div>团队名称</div>
+        <li class="popbox-li" v-for="group in groupList">
+          <div>{{ group.name }}</div>
           <small class="group-info-container">
-            <span><i class="glyphicon glyphicon-user"></i>1人</span>
+            <span><i class="glyphicon glyphicon-user"></i>{{ group.user_ids.length }}人</span>
           </small>
         </li>
         <li class="divider"></li>
@@ -18,22 +18,48 @@
         </li>
       </ul>
     </div>
-    <create-group :hook="modalHook"></create-group>
+    <create-group :hook="modalHook" v-on:createdGroup="insetGroup"></create-group>
   </div>
 </template>
 
 <script>
 import createGroup from './create-group'
 export default {
+  created (){
+    this.getGroupList()
+  },
   data (){
     return {
-      modalHook:false
+      modalHook:false,
+      groupList:[]
     }
   },
   methods:{
     createGroup (){
       this.modalHook=!this.modalHook
     },
+    getGroupList (){
+      const id=this.$getFromSession('userInfo','id')
+      this.$get(`api/People/${id}/person_has_groups`)
+        .then(body=>{
+          let promiseArr=[]
+          body.forEach(({group_id})=>{
+            promiseArr.push(this.$filterGet(`api/Groups/findOne`,{id:group_id}))
+          })
+          return promiseArr
+        })
+        .then(promiseArr=>{
+          Promise.all(promiseArr)
+            .then(groupList=>{
+              groupList.forEach(group=>{
+                this.groupList.push(group)
+              })
+            })
+        })
+    },
+    insetGroup (group){
+      this.groupList.push(group)
+    }
   },
   components:{createGroup},
   props:['isShow']

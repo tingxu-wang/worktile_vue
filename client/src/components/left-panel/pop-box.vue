@@ -25,6 +25,11 @@ export default {
       ]
     }
   },
+  methods:{
+    empty (){
+      consoel.log('empty')
+    }
+  },
   props:['popBoxIsShow']
 }
 </script>

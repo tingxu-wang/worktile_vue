@@ -29,8 +29,8 @@
             <input type="phone" class="form-control" v-model="phoneGroup[index].phoneNum" >
           </div>
           <div class="form-group row">
-            <button class="btn btn-link" @click="addPhoneGroup">+ 添加</button>
-            <button class="btn btn-link" @click="reducePhoneGroup">- 减少</button>
+            <button class="btn btn-link" @click="addPhoneGroup()">+ 添加</button>
+            <button class="btn btn-link" @click="reducePhoneGroup()">- 减少</button>
           </div>
         </div>
         <div v-else-if="stepIndex===2">
@@ -71,21 +71,35 @@ export default {
     }
   },
   computed:{
+    leaderId (){
+      return this.$getFromSession('userInfo','id')
+    },
+    leaderHead (){
+      return this.$getFromSession('userInfo','headName')
+    },
     leaderName (){
-      return this.$getValFromSessionObj('userInfo','name')
+      return this.$getFromSession('userInfo','name')
     },
     leaderPhone (){
-      return this.$getValFromSessionObj('userInfo','phone')
+      return this.$getFromSession('userInfo','phone')
     },
     groupMembers (){
-      return this.phoneGroup.map((item)=>{
+      return this.phoneGroup.map(item=>{
         return item.headName
-      }).concat(this.$getValFromSessionObj('userInfo','headName'))
+      })
+      .filter(headName=>{
+        return headName!==this.leaderHead
+      })
+      .concat(this.leaderHead)
     },
     user_ids (){
-      return this.phoneGroup.map((item)=>{
+      return this.phoneGroup.map(item=>{
         return item.id
-      }).concat(this.$getValFromSessionObj('userInfo','id'))
+      })
+      .filter(id=>{
+        return id!==this.leaderId
+      })
+      .concat(this.leaderId)
     }
   },
   methods:{
@@ -143,14 +157,14 @@ export default {
       }
     },
     postGroupInfo (){
-      let postInfo={
-        leader_id:this.$getValFromSessionObj('userInfo','id'),
-        leader_phone:this.$getValFromSessionObj('userInfo','phone'),
+      let groupInfo={
+        leader_id:this.$getFromSession('userInfo','id'),
+        leader_phone:this.$getFromSession('userInfo','phone'),
         create_time:String(Date.now()),
         user_ids:this.user_ids,
         name:this.groupName
       }
-      this.$post('/api/Groups',postInfo)
+      this.$post('/api/Groups',groupInfo)
         .then(({id})=>{
           let promiseArr=[]
           this.user_ids.forEach(userId=>{
@@ -162,7 +176,12 @@ export default {
           })
           Promise.all(promiseArr)
             .then(()=>{
+              this.$emit('createdGroup',groupInfo)
               this.$hideModal()
+
+              this.stepIndex=0
+              this.groupName=''
+              this.phoneGroup=[{phoneNum:'',isInValid:false,id:'',headName:''}]
             })
         })
     },

@@ -10,8 +10,13 @@ MyPlugin.install=function(Vue){
     return result
   }
 
-  _this.$getFromSession=function(key){
-    return sessionStorage.getItem(key)
+  _this.$getFromSession=function(key,infoKey=false){
+    if(infoKey){
+      const sessionObj=JSON.parse(sessionStorage.getItem(key))
+      return sessionObj[infoKey]
+    }else{
+      return sessionStorage.getItem(key)
+    }
   }
 
   _this.$saveToSession=function(key,item){
@@ -23,13 +28,22 @@ MyPlugin.install=function(Vue){
     _this.$saveToSession('userInfo',infoObj)
   }
 
-  _this.$getValFromSessionObj=function(sessionKey,infoKey){
-    var sessionObj=JSON.parse(sessionStorage.getItem(sessionKey))
-    return sessionObj[infoKey]
-  }
-
   _this.$post=function(url,obj){
     return this.$http.post(url,obj)
+      .then(({status,body,code})=>{
+        if(status===200){
+          return body
+        }else{
+          throw new Error(`服务器出现错误！status:${status},code:${code},url:${url}`)
+        }
+      })
+      .catch(err=>{
+        throw new Error(err)
+      })
+  }
+
+  _this.$get=function(url){
+    return this.$http.get(url)
       .then(({status,body,code})=>{
         if(status===200){
           return body

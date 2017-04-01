@@ -52,7 +52,7 @@ export default {
   },
   computed:{
     headName (){
-      return this.$getValFromSessionObj('userInfo','headName')
+      return this.$getFromSession('userInfo','headName')
     }
   },
   methods:{
