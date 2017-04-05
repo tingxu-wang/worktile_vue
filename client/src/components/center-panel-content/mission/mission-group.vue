@@ -1,10 +1,10 @@
 <template lang="html">
   <div>
-    <div class="mission-group-item">
+    <div class="mission-group-item" v-for="taskgroup in taskGroups">
       <div class="mission-group-header clearfix">
         <div class="mission-group-title-container pull-left">
           <div class="mission-group-title">
-            收件箱
+            {{ taskgroup.name }}
           </div>
         </div>
         <div class="item-num-container pull-right">
@@ -23,14 +23,30 @@
         </div>
       </div>
     </div>
+    <create-mission-group :project-id="projectId" :task-group-length="taskGroupLength" v-on:taskGroupCreated="addTaskGroup"></create-mission-group>
   </div>
 </template>
 
 <script>
 import taskItem from './task-item.vue'
+import createMissionGroup from './create-mission-group'
 
 export default {
-  components:{taskItem}
+  computed:{
+    innerTaskGroups (){
+      return this.taskGroups
+    },
+    taskGroupLength (){
+      return this.innerTaskGroups.length
+    }
+  },
+  methods:{
+    addTaskGroup (taskGroup){
+      this.innerTaskGroups.push(taskGroup)
+    }
+  },
+  components:{taskItem,createMissionGroup},
+  props:['projectId','taskGroups']
 }
 </script>
 

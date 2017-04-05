@@ -6,7 +6,7 @@
           <span>我的团队</span>
         </li>
         <li class="divider"></li>
-        <li class="popbox-li" v-for="group in groupList">
+        <li class="popbox-li" v-for="group in groupList" @click="toGroup(group.id,group.name)">
           <div>{{ group.name }}</div>
           <small class="group-info-container">
             <span><i class="glyphicon glyphicon-user"></i>{{ group.user_ids.length }}人</span>
@@ -18,7 +18,7 @@
         </li>
       </ul>
     </div>
-    <create-group :hook="modalHook" v-on:createdGroup="insetGroup"></create-group>
+    <create-group :hook="modalHook" v-on:createdGroup="insertGroup"></create-group>
   </div>
 </template>
 
@@ -57,8 +57,12 @@ export default {
             })
         })
     },
-    insetGroup (group){
+    insertGroup (group){
       this.groupList.push(group)
+    },
+    toGroup (groupId,groupName){
+      this.$router.push({name:'group',params:{groupId,groupName}})
+      this.$emit('groupClose')
     }
   },
   components:{createGroup},

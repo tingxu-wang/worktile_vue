@@ -35,7 +35,7 @@ $tabColor:#fff;
   margin: 14px 0;
   text-align: center;
   line-height: 138%;
-  white-space: nowrap;
+  // white-space: nowrap;
   font-size: 12px;
   cursor: pointer;
   transition: color 0.2s linear;

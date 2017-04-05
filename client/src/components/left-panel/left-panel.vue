@@ -7,7 +7,7 @@
             <div class="left-panel-top" @click="toggleGroupActive">
               <i class="glyphicon glyphicon-th-large"></i>
             </div>
-            <group-review :is-show="groupIsShow"></group-review>
+            <group-review :is-show="groupIsShow" v-on:groupClose="closeGroup"></group-review>
           </div>
           <div class="left-panel-tab-wrap">
             <ul class="left-panel-tab">
@@ -43,7 +43,7 @@ export default {
         {iconName:'glyphicon-dashboard',tabName:'我的',routerName:'dashboard'},
         {iconName:'glyphicon-search',tabName:'搜索',routerName:'search'},
         {iconName:'glyphicon-envelope',tabName:'消息',routerName:'messages'},
-        {iconName:'glyphicon-folder-open',tabName:'项目',routerName:'project'},
+        {iconName:'glyphicon-folder-open',tabName:'项目总览',routerName:'projectReview'},
       ],
       popBoxIsShow:false,
       userBoxIsShow:false,
@@ -76,6 +76,9 @@ export default {
         this.togglePopBoxActive()
       }
       this.toggleUserBoxActive()
+    },
+    closeGroup (){
+      this.groupIsShow=false
     }
   },
   components:{
@@ -83,7 +86,8 @@ export default {
     popBox,
     userSetting,
     groupReview
-  }
+  },
+  props:['projectId']
 }
 </script>
 <style lang="scss">

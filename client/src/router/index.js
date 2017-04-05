@@ -7,9 +7,11 @@ import Regist from '@/components/Regist'
 
 import mission from '@panelContent/mission/mission'
 import messages from '@panelContent/messages'
-import project from '@panelContent/project'
+import projectReview from '@panelContent/projectReview'
+import project from '@panelContent/project/project'
 import search from '@panelContent/search'
 import moments from '@panelContent/moments'
+import group from '@panelContent/group'
 
 Vue.use(Router)
 
@@ -56,7 +58,12 @@ export default new Router({
           component:messages
         },
         {
-          path:'project',
+          path:'projectReview',
+          name:'projectReview',
+          component:projectReview
+        },
+        {
+          path:'project/:projectId/:projectName',
           name:'project',
           component:project
         },
@@ -64,6 +71,11 @@ export default new Router({
           path:'search',
           name:'search',
           component:search
+        },
+        {
+          path:'group/:groupId/:groupName',
+          name:'group',
+          component:group
         }
       ]
     }

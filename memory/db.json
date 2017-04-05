@@ -7,7 +7,9 @@
     "Role": 1,
     "Person": 4,
     "Group": 7,
-    "Person_has_group": 13
+    "Person_has_group": 13,
+    "Project": 2,
+    "Task_group": 8
   },
   "models": {
     "User": {},
@@ -35,6 +37,18 @@
       "10": "{\"person_id\":2,\"group_id\":6,\"id\":10}",
       "11": "{\"person_id\":3,\"group_id\":6,\"id\":11}",
       "12": "{\"person_id\":1,\"group_id\":6,\"id\":12}"
+    },
+    "Project": {
+      "1": "{\"group_id\":4,\"name\":\"提神醒脑\",\"description\":\"解决精力差的问题\",\"id\":1}"
+    },
+    "Task_group": {
+      "1": "{\"project_id\":1,\"name\":\"零度可乐\",\"index\":0,\"id\":1}",
+      "2": "{\"project_id\":1,\"name\":\"百事可乐\",\"index\":1,\"id\":2}",
+      "3": "{\"project_id\":1,\"name\":\"aaa\",\"index\":2,\"id\":3}",
+      "4": "{\"project_id\":1,\"name\":\"bbb\",\"index\":3,\"id\":4}",
+      "5": "{\"project_id\":1,\"name\":\"ddd\",\"index\":4,\"id\":5}",
+      "6": "{\"project_id\":1,\"name\":\"ttt\",\"index\":5,\"id\":6}",
+      "7": "{\"project_id\":1,\"name\":\"sss\",\"index\":6,\"id\":7}"
     }
   }
 }

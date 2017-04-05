@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    project
+    projectReview
   </div>
 </template>
 

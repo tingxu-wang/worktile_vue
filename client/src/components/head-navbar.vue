@@ -32,7 +32,7 @@ export default {
               {name:'动态',routerName:'moments'}
             ]
           }
-        break;
+          break;
         case 'search':
           return {
             iconName:'glyphicon-search',
@@ -40,7 +40,7 @@ export default {
             menuItems:[
             ]
           }
-        break;
+          break;
         case 'messages':
           return {
             iconName:'glyphicon-envelope',
@@ -51,15 +51,35 @@ export default {
               {name:'已读',routerName:'readed'}
             ]
           }
-        break;
-        case 'project':
+          break;
+        case 'projectReview':
           return {
             iconName:'glyphicon-folder-open',
             title:'项目一览',
             menuItems:[
+              {name:'任务',routerName:'mission'},
+              {name:'文档',routerName:'document'},
+              {name:'话题',routerName:'topic'}
             ]
           }
-        break;
+          break;
+        case 'group':
+          const groupId=this.$route.params.groupId,
+            groupName=this.$route.params.groupName
+          return {
+            iconName:'glyphicon-th-large',
+            title:groupName,
+            menuItems:[
+            ]
+          }
+          break;
+        case 'project':
+          return {
+            iconName:'glyphicon-folder-open',
+            title:this.$route.params.projectName,
+            menuItems:[]
+          }
+          break;
       }
     }
   },
@@ -111,7 +131,6 @@ export default {
 
         .navbar-title{
           padding: 0 7px;
-          margin-right: 11px;
           width: 44px;
           display: inline-block;
           text-align: center;
