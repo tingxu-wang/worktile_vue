@@ -1,31 +1,53 @@
 <template lang="html">
-  <div class="task clearfix">
-    <div class="task-title-container">
-      <div class="radio-box">
-        <input type="checkbox">
-      </div>
-      <div class="task-title">task-title</div>
-      <div class="task-badges">
-        <div class="task-badge">
-          <i class="glyphicon glyphicon-pushpin"></i>
-          项目名称
+  <div>
+    <div class="task clearfix" v-for="task in tasks">
+      <div class="task-title-container" :class="{completed:task.is_solved}">
+        <div class="radio-box">
+          <input type="checkbox" v-model="task.is_solved" @click="changeSolved(task.id,task.is_solved)">
         </div>
-      </div>
-      <div class="task-members">
-        <div class="task-member-item">
-          <div class="task-member-face">
-            <div class="task-member-text">
-              庭旭
+        <div class="task-title">{{ task.name }}</div>
+        <div class="task-badges" v-if="!isProject">
+          <div class="task-badge">
+            <i class="glyphicon glyphicon-pushpin"></i>
+            {{ task.project_name }}
+          </div>
+        </div>
+        <div class="task-members">
+          <div class="task-member-item" v-for="personInfo in task.focus_person_info">
+            <div class="task-member-face">
+              <div class="task-member-text">
+                {{ personInfo.headName }}
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <!-- <slide></slide> -->
   </div>
 </template>
 
 <script>
+import slide from '@pub/slide'
 export default {
+  computed:{
+    isProject (){
+      return this.$store.state.secondRouterName==='project'
+    }
+  },
+  methods:{
+    changeSolved (id,isSolved){
+      let infoObj={
+        is_solved:isSolved
+      }
+      this.$paramsPost('/api/Tasks/update',infoObj,{where:{id}})
+        .then(body=>{
+
+        })
+    }
+  },
+  components:{slide},
+  props:['tasks']
 }
 </script>
 
@@ -40,7 +62,12 @@ export default {
   padding-bottom: 2px;
   line-height: 20px;
   cursor: pointer;
-
+  &:hover{
+    background: #f8f6f2;;
+  }
+  .completed{
+    text-decoration: line-through;
+  }
   .task-title-container{
     position: relative;
     padding: 11px 0 3px 0;

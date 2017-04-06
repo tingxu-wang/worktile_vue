@@ -42,6 +42,20 @@ MyPlugin.install=function(Vue){
       })
   }
 
+  _this.$paramsPost=function(url,obj,params){
+    return this.$http.post(url,obj,{params})
+      .then(({status,body,code})=>{
+        if(status===200){
+          return body
+        }else{
+          throw new Error(`服务器出现错误！status:${status},code:${code},url:${url}`)
+        }
+      })
+      .catch(err=>{
+        throw new Error(err)
+      })
+  }
+
   _this.$get=function(url){
     return this.$http.get(url)
       .then(({status,body,code})=>{
@@ -57,7 +71,6 @@ MyPlugin.install=function(Vue){
   }
 
   _this.$paramsGet=function(url,params){
-    console.log(params)
     return this.$http.get(url,{params})
       .then(({status,body,code})=>{
         if(status===200){

@@ -10,24 +10,47 @@
       "type": "number",
       "required": true
     },
+    "task_group_name": {
+      "type": "string",
+      "required": true
+    },
     "description": {
       "type": "string"
     },
     "solve_person_id": {
-      "type": "string",
+      "type": "string"
+    },
+    "focus_person_info": {
+      "type": "object",
       "required": true
     },
-    "focus_person_id": {
-      "type": "string",
-      "required": true
-    },
-    "dead_line": {
+    "dead_time": {
       "type": "string"
     },
     "tag": {
       "type": "string"
     },
     "name": {
+      "type": "string",
+      "required": true
+    },
+    "create_time": {
+      "type": "string",
+      "required": true
+    },
+    "create_person_id": {
+      "type": "string",
+      "required": true
+    },
+    "is_solved": {
+      "type": "boolean",
+      "required": true
+    },
+    "project_id": {
+      "type": "string",
+      "required": true
+    },
+    "project_name": {
       "type": "string",
       "required": true
     }

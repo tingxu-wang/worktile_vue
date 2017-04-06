@@ -41,6 +41,7 @@ export default {
       if(this.taskGroupName){
         let infoObj={
           project_id:this.projectId,
+          project_name:this.projectName,
           name:this.taskGroupName,
           index:this.taskGroupLength
         }
@@ -61,7 +62,7 @@ export default {
     }
   },
   components:{dangerAlert:alert},
-  props:['projectId','taskGroupLength']
+  props:['projectId','taskGroupLength','projectName']
 }
 </script>
 

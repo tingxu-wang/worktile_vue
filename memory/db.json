@@ -9,7 +9,8 @@
     "Group": 7,
     "Person_has_group": 13,
     "Project": 2,
-    "Task_group": 8
+    "Task_group": 2,
+    "Task": 3
   },
   "models": {
     "User": {},
@@ -42,13 +43,11 @@
       "1": "{\"group_id\":4,\"name\":\"提神醒脑\",\"description\":\"解决精力差的问题\",\"id\":1}"
     },
     "Task_group": {
-      "1": "{\"project_id\":1,\"name\":\"零度可乐\",\"index\":0,\"id\":1}",
-      "2": "{\"project_id\":1,\"name\":\"百事可乐\",\"index\":1,\"id\":2}",
-      "3": "{\"project_id\":1,\"name\":\"aaa\",\"index\":2,\"id\":3}",
-      "4": "{\"project_id\":1,\"name\":\"bbb\",\"index\":3,\"id\":4}",
-      "5": "{\"project_id\":1,\"name\":\"ddd\",\"index\":4,\"id\":5}",
-      "6": "{\"project_id\":1,\"name\":\"ttt\",\"index\":5,\"id\":6}",
-      "7": "{\"project_id\":1,\"name\":\"sss\",\"index\":6,\"id\":7}"
+      "1": "{\"project_id\":1,\"name\":\"零度可乐\",\"index\":0,\"project_name\":\"提神醒脑\",\"id\":1}"
+    },
+    "Task": {
+      "1": "{\"task_group_id\":1,\"task_group_name\":\"零度可乐\",\"focus_person_info\":[{\"id\":1,\"headName\":\"庭旭\"}],\"name\":\"无糖刺激\",\"create_time\":\"1491473527948\",\"create_person_id\":\"1\",\"is_solved\":true,\"project_id\":\"1\",\"project_name\":\"提神醒脑\",\"id\":1}",
+      "2": "{\"task_group_id\":1,\"task_group_name\":\"零度可乐\",\"focus_person_info\":[{\"id\":2,\"headName\":\"蒋圆\"}],\"name\":\"零度无忌\",\"create_time\":\"1491473627026\",\"create_person_id\":\"2\",\"is_solved\":false,\"project_id\":\"1\",\"project_name\":\"提神醒脑\",\"id\":2}"
     }
   }
 }

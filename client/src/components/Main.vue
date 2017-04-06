@@ -43,5 +43,13 @@ export default {
 }
 .center-panel-content{
   padding-top: 7px;
+  overflow-x: auto;
+  white-space: nowrap;
+  position:absolute;
+  top: 56px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 0;
 }
 </style>

@@ -102,7 +102,7 @@ export default {
   background-color: #fff;
   border-bottom: solid 1px #eeece8;
   min-height: 55px;
-  z-index: 3;
+  // z-index: 3;
 
   .main{
     line-height: 55px;
