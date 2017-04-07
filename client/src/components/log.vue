@@ -3,7 +3,7 @@
     <alert-danger :message="errMsg" type="danger"></alert-danger>
     <div class="main">
       <div class="panel-header">
-        企业合作管理系统
+        团队协同办公系统
       </div>
       <div class="panel-body">
         <div class="form">

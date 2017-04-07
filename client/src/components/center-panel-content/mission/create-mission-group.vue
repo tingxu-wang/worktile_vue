@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="create-mission-container" :class="{'gray-bg':!showCreate}">
+  <div class="create-mission-container" :class="{'gray-bg':!showCreate}" v-if="!isDashboard">
     <div class="create-mission" @click="createMission" v-if="!showCreate">
       <i class="glyphicon glyphicon-plus-sign"></i>
       新建任务列表
@@ -27,6 +27,11 @@ export default {
       showCreate:false,
       taskGroupName:'',
       errMsg:''
+    }
+  },
+  computed:{
+    isDashboard (){
+      return this.$store.state.secondRouterName==='dashboard'
     }
   },
   methods:{
