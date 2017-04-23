@@ -1,9 +1,9 @@
 <template lang="html">
   <div>
-    <div class="task clearfix" v-for="task in tasks">
+    <div class="task clearfix" v-for="task in tasks" @click="showSlide(task.id,task.name)">
       <div class="task-title-container" :class="{completed:task.is_solved}">
         <div class="radio-box">
-          <input type="checkbox" v-model="task.is_solved" @click="changeSolved(task.id,task.is_solved)">
+          <input type="checkbox" v-model="task.is_solved" @click="changeSolved(task.id)">
         </div>
         <div class="task-title">{{ task.name }}</div>
         <div class="task-badges" v-if="!isProject">
@@ -23,13 +23,20 @@
         </div>
       </div>
     </div>
-    <!-- <slide></slide> -->
+    <task-slide :task-id="slideTaskId" :task-name="taskName" :is-show="isSlideShow" v-on:slideClose="closeSlide"></task-slide>
   </div>
 </template>
 
 <script>
-import slide from '@pub/slide'
+import taskSlide from './task-slide'
 export default {
+  data (){
+    return {
+      slideTaskId:-1,
+      taskName:'',
+      isSlideShow:false
+    }
+  },
   computed:{
     isProject (){
       return this.$store.state.secondRouterName==='project'
@@ -44,9 +51,17 @@ export default {
         .then(body=>{
 
         })
+    },
+    showSlide (taskId,taskName){
+      this.isSlideShow=true
+      this.slideTaskId=taskId
+      this.taskName=taskName
+    },
+    closeSlide (){
+      this.isSlideShow=false
     }
   },
-  components:{slide},
+  components:{taskSlide},
   props:['tasks']
 }
 </script>

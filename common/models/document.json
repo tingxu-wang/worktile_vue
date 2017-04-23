@@ -21,6 +21,10 @@
     "person_name": {
       "type": "string",
       "required": true
+    },
+    "create_time": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

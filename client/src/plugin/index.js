@@ -56,6 +56,20 @@ MyPlugin.install=function(Vue){
       })
   }
 
+  _this.$filterPost=function(url,obj,filter){
+    return this.$http.post(url,obj,{params:{where:filter}})
+      .then(({status,body,code})=>{
+        if(status===200){
+          return body
+        }else{
+          throw new Error(`服务器出现错误！status:${status},code:${code},url:${url}`)
+        }
+      })
+      .catch(err=>{
+        throw new Error(err)
+      })
+  }
+
   _this.$get=function(url){
     return this.$http.get(url)
       .then(({status,body,code})=>{

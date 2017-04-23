@@ -5,11 +5,11 @@
     "ACL": 1,
     "RoleMapping": 1,
     "Role": 1,
-    "Person": 4,
-    "Group": 7,
-    "Person_has_group": 13,
-    "Project": 2,
-    "Task_group": 2,
+    "Person": 5,
+    "Group": 8,
+    "Person_has_group": 15,
+    "Project": 3,
+    "Task_group": 3,
     "Task": 3
   },
   "models": {
@@ -21,12 +21,14 @@
     "Person": {
       "1": "{\"firstName\":\"王\",\"secondName\":\"庭旭\",\"name\":\"王庭旭\",\"headName\":\"庭旭\",\"phone\":\"1\",\"password\":\"qwaa1234\",\"id\":1}",
       "2": "{\"firstName\":\"蒋\",\"secondName\":\"圆\",\"name\":\"蒋圆\",\"headName\":\"蒋圆\",\"phone\":\"2\",\"password\":\"qwaa1234\",\"id\":2}",
-      "3": "{\"firstName\":\"黎\",\"secondName\":\"特\",\"name\":\"黎特\",\"headName\":\"黎特\",\"phone\":\"3\",\"password\":\"qwaa1234\",\"id\":3}"
+      "3": "{\"firstName\":\"黎\",\"secondName\":\"特\",\"name\":\"黎特\",\"headName\":\"黎特\",\"phone\":\"3\",\"password\":\"qwaa1234\",\"id\":3}",
+      "4": "{\"firstName\":\"a\",\"secondName\":\"b\",\"name\":\"ab\",\"headName\":\"ab\",\"phone\":\"15801183454\",\"password\":\"qw\",\"id\":4}"
     },
     "Group": {
       "4": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1490952248594\",\"user_ids\":[2,3,1],\"name\":\"bilibili\",\"id\":4}",
       "5": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1491061270189\",\"user_ids\":[2,3,1],\"name\":\"零度可乐\",\"id\":5}",
-      "6": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1491062182633\",\"user_ids\":[2,3,1],\"name\":\"没有蛀牙\",\"id\":6}"
+      "6": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1491062182633\",\"user_ids\":[2,3,1],\"name\":\"没有蛀牙\",\"id\":6}",
+      "7": "{\"leader_id\":1,\"leader_phone\":\"1\",\"create_time\":\"1492692598537\",\"user_ids\":[2,1],\"name\":\"联合大学\",\"id\":7}"
     },
     "Person_has_group": {
       "4": "{\"person_id\":2,\"group_id\":4,\"id\":4}",
@@ -37,17 +39,21 @@
       "9": "{\"person_id\":1,\"group_id\":5,\"id\":9}",
       "10": "{\"person_id\":2,\"group_id\":6,\"id\":10}",
       "11": "{\"person_id\":3,\"group_id\":6,\"id\":11}",
-      "12": "{\"person_id\":1,\"group_id\":6,\"id\":12}"
+      "12": "{\"person_id\":1,\"group_id\":6,\"id\":12}",
+      "13": "{\"person_id\":2,\"group_id\":7,\"id\":13}",
+      "14": "{\"person_id\":1,\"group_id\":7,\"id\":14}"
     },
     "Project": {
-      "1": "{\"group_id\":4,\"name\":\"提神醒脑\",\"description\":\"解决精力差的问题\",\"id\":1}"
+      "1": "{\"group_id\":4,\"name\":\"提神醒脑\",\"description\":\"解决精力差的问题\",\"id\":1}",
+      "2": "{\"group_id\":4,\"name\":\"视频流加载\",\"description\":\"研究视频流加载的实现方法\",\"id\":2}"
     },
     "Task_group": {
-      "1": "{\"project_id\":1,\"name\":\"零度可乐\",\"index\":0,\"project_name\":\"提神醒脑\",\"id\":1}"
+      "1": "{\"project_id\":1,\"name\":\"零度可乐\",\"index\":0,\"project_name\":\"提神醒脑\",\"id\":1}",
+      "2": "{\"project_id\":1,\"name\":\"力保健\",\"index\":1,\"project_name\":\"提神醒脑\",\"id\":2}"
     },
     "Task": {
-      "1": "{\"task_group_id\":1,\"task_group_name\":\"零度可乐\",\"focus_person_info\":[{\"id\":1,\"headName\":\"庭旭\"}],\"name\":\"无糖刺激\",\"create_time\":\"1491473527948\",\"create_person_id\":\"1\",\"is_solved\":true,\"project_id\":\"1\",\"project_name\":\"提神醒脑\",\"id\":1}",
-      "2": "{\"task_group_id\":1,\"task_group_name\":\"零度可乐\",\"focus_person_info\":[{\"id\":2,\"headName\":\"蒋圆\"}],\"name\":\"零度无忌\",\"create_time\":\"1491473627026\",\"create_person_id\":\"2\",\"is_solved\":false,\"project_id\":\"1\",\"project_name\":\"提神醒脑\",\"id\":2}"
+      "1": "{\"task_group_id\":1,\"task_group_name\":\"零度可乐\",\"description\":\"\",\"solve_person_info\":[{\"firstName\":\"王\",\"secondName\":\"庭旭\",\"name\":\"王庭旭\",\"headName\":\"庭旭\",\"phone\":\"1\",\"id\":1}],\"focus_person_info\":[{\"id\":1,\"headName\":\"庭旭\"}],\"dead_time\":\"\",\"tags\":[],\"name\":\"无糖饮品\",\"create_time\":\"1492943173633\",\"create_person_id\":\"1\",\"is_solved\":false,\"project_id\":\"1\",\"project_name\":\"提神醒脑\",\"id\":1}",
+      "2": "{\"task_group_id\":1,\"task_group_name\":\"零度可乐\",\"description\":\"\",\"solve_person_info\":[{\"firstName\":\"王\",\"secondName\":\"庭旭\",\"name\":\"王庭旭\",\"headName\":\"庭旭\",\"phone\":\"1\",\"id\":1}],\"focus_person_info\":[{\"id\":1,\"headName\":\"庭旭\"}],\"dead_time\":\"\",\"tags\":[],\"name\":\"零度无忌\",\"create_time\":\"1492944160955\",\"create_person_id\":\"1\",\"is_solved\":false,\"project_id\":\"1\",\"project_name\":\"提神醒脑\",\"id\":2}"
     }
   }
 }

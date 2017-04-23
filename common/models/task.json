@@ -17,18 +17,18 @@
     "description": {
       "type": "string"
     },
-    "solve_person_id": {
-      "type": "string"
+    "solve_person_info": {
+      "type": "array"
     },
     "focus_person_info": {
-      "type": "object",
+      "type": "array",
       "required": true
     },
     "dead_time": {
       "type": "string"
     },
-    "tag": {
-      "type": "string"
+    "tags": {
+      "type": "array"
     },
     "name": {
       "type": "string",

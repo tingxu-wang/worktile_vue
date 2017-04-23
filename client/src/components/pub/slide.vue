@@ -1,22 +1,32 @@
 <template lang="html">
-  <div class="slide-content">
+  <div class="slide-content" v-show="isShow">
     <div class="entity-well-header clearfix">
-      <div class="entity-project-name">
-        project-name
+      <slot name="header"></slot>
+      <div class="close-container">
+        <i class="glyphicon glyphicon-remove pull-right" @click="close()"></i>
       </div>
-      <ul class="entity-well-header-nav">
-        <li>x</li>
-      </ul>
+    </div>
+    <div class="slider-body">
+      <slot name="body"></slot>
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  methods:{
+    close (){
+      this.$emit('slideClose')
+    }
+  },
+  props:['isShow']
 }
 </script>
 
 <style lang="scss" scoped>
+$hover-color:#da4f4a;
+$default-color:#acaba7;
+$border:solid 1px #eeece8;
 .slide-content{
   border-left: solid 1px #e8edf3;
   box-shadow: 0 0 15px rgba(0,0,0,.1);
@@ -28,35 +38,25 @@ export default {
   width: 700px;
   z-index: 100;
   .entity-well-header{
-    padding: 7px 0 7px 20px;
-    border-bottom: solid 1px #eeece8;
+    padding: 15px 20px;
+    border-bottom: $border;
     position: relative;
-    .entity-project-name{
-      color: #acaba7;
-      font-size: 15px;
-      line-height: 280%;
-      position: absolute;
-      right: 450px;
-      left: 23px;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
-      cursor:pointer;
-      &:hover{
-        color:#da4f4a;
+    color: $default-color;
+    .close-container{
+      float:right;
+      width:40px;
+      padding-top: 2px;
+      border-left: $border;
+      i{
+        cursor: pointer;
+        &:hover{
+          color:$hover-color;
+        }
       }
     }
-    .entity-well-header-nav{
-      float: right;
-      margin-left: 0;
-      font-size: 14px;
-      margin-bottom: 0;
-      padding-left: 0;
-      list-style: none;
-      li {
-        float:left;
-      }
-    }
+  }
+  .slider-body{
+    padding:10px 10px 0px;
   }
 }
 </style>

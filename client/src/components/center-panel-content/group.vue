@@ -9,7 +9,6 @@
       <template>
         <danger-alert type="danger" :message="errMsg"></danger-alert>
         <div class="form">
-          <label>项目信息</label>
           <div class="form-group">
             <input type="text" class="form-control" v-model="projectName" placeholder="请输入项目名称">
           </div>
@@ -63,7 +62,10 @@ export default {
       }else{
         this.$post('/api/Projects',infoObj)
           .then(body=>{
-              this.projectArr.push(body)
+            this.projectArr.push(body)
+            this.hideModal()
+            this.projectName=''
+            this.projectDescription=''
           })
       }
     },

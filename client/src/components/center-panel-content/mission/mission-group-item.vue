@@ -67,7 +67,11 @@ export default {
           name:this.taskName,
           create_time:Date.now(),
           create_person_id:this.$getFromSession('userInfo','id'),
-          is_solved:false
+          is_solved:false,
+          solve_person_info:[],
+          description:'',
+          dead_time:'',
+          tags:[]
         }
         this.$post('/api/Tasks',infoObj)
           .then(body=>{

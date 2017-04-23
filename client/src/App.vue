@@ -23,7 +23,7 @@ html,body,#app{
   background: #64b1ca;
   color:#fff;
   line-height: 40px;
-  margin:0 auto 15px;
+  text-align: center;
 }
 .g-user-head-default{
   @extend .g-user-head;

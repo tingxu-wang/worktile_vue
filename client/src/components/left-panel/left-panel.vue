@@ -144,6 +144,9 @@ export default {
     right: 0;
     left: 0;
     text-align: center;
+    .user-setting{
+      margin:0 auto 15px;
+    }
   }
   .quick-add{
     width:60px;
