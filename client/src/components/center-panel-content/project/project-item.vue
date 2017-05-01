@@ -27,7 +27,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .project-main-container{
   padding-top:15px;
   .project-item{
@@ -49,10 +49,24 @@ export default {
       top:5px;
       .description{
         color:lighten(#000,50);
+        height:20px;
+      }
+      &:hover{
+        color:#da4f4a;
+      }
+    }
+    .delete-container{
+      display: none;
+      float: right;
+      margin:5px 3px;
+      &:hover{
+        color:#da4f4a;
       }
     }
     &:hover{
-      color:#da4f4a;
+      .delete-container{
+        display: inline-block;
+      }
     }
   }
 }

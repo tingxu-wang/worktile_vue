@@ -31,6 +31,13 @@ router.beforeEach((to,from,next)=>{//检测是否登录
   }
 })
 
+router.beforeEach((to,from,next)=>{//处理当初没想到的点击head-nav跳转三级路由的问题
+  if(to.name==='project' && store.state.routerLevel[3]==='document'){
+    router.push({name:'document'})
+  }
+
+  next()
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

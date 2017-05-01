@@ -5,8 +5,8 @@
         {{ task.project_name }}
       </div>
     </template>
-    <div slot="body" class="slide-body" :class="{'completed':!task.is_solved}">
-      <div class="body-title">
+    <div slot="body" class="slide-body">
+      <div class="body-title" :class="{'completed':task.is_solved}">
         {{ task.name }}
         <small>/{{ task.description || '项目暂无描述'}}</small>
         <input type="checkbox" class="tesk-status-btn" v-model="task.is_solved">
@@ -131,6 +131,12 @@ export default {
     },
     emitClose (){
       this.$emit('slideClose')
+    },
+    updateTask (){
+      this.$emit('updateTask',{
+        name:this.task.name,
+        is_solved:this.task.is_solved
+      })
     }
   },
   components:{

@@ -13,6 +13,8 @@ import search from '@panelContent/search'
 import moments from '@panelContent/moments'
 import group from '@panelContent/group'
 
+import document from '@panelContent/project/document'
+
 Vue.use(Router)
 
 export default new Router({
@@ -66,6 +68,11 @@ export default new Router({
           path:'project/:projectId/:projectName',
           name:'project',
           component:project
+        },
+        {
+          path:'project/:projectId/:projectName/document',
+          name:'document',
+          component:document
         },
         {
           path:'search',
