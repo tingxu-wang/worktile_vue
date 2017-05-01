@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="main-container">
+  <div class="content-main-container">
     <span class="main-title">添加文档</span>
     <button class="btn btn-primary btn-sm" @click="createDocument()"><span class="glyphicon glyphicon-plus"></span></button>
     <modal :hook="createHook">
@@ -24,11 +24,11 @@
     </modal>
 
     <div class="project-main-container">
-      <div class="project-item" v-for="(doc,$index) in docArr" @click="showDoc($index)">
-        <div class="project-icon-container">
-          <i class="glyphicon glyphicon-file project-icon"></i>
+      <div class="item" v-for="(doc,$index) in docArr" @click="showDoc($index)">
+        <div class="icon-container">
+          <i class="glyphicon glyphicon-file icon"></i>
         </div>
-        <div class="project-text-container">
+        <div class="text-container">
           <div>
             {{ doc.title }}
           </div>
@@ -40,24 +40,7 @@
           删除
         </div>
       </div>
-      <modal :hook="docHook">
-        <template slot="title">
-          文档信息详情
-        </template>
-        <template>
-          <alert type="danger" :message="errMsg"></alert>
-          <div class="form">
-            <div class="form-group">
-              文档名称：{{ docModalInfo.title }}
-            </div>
-            <div class="form-group" v-html="docModalInfo.content">
-            </div>
-          </div>
-        </template>
-        <template slot="footer">
-          <button type="button" class="btn btn-primary" data-dismiss="modal">确定</button>
-        </template>
-      </modal>
+      <documentModal :docHook="docHook" :docModalInfo="docModalInfo"></documentModal>
     </div>
 
   </div>
@@ -67,6 +50,7 @@
 import modal from '@pub/modal'
 import alert from '@pub/alert'
 import marked from 'marked'
+import documentModal from './document-modal'
 export default {
   created (){
     this.getDocs()
@@ -133,26 +117,11 @@ export default {
   },
   components:{
     modal,
-    alert
+    alert,
+    documentModal
   }
 }
 </script>
 
 <style lang="scss" scoped>
-.main-container{
-  background: #fff;
-  min-height:900px;
-  margin:7px 14px;
-  padding:21px;
-  .main-title{
-    user-select: none;
-    border-bottom: solid 1px #f8f6f2;
-    padding: 0 15px 14px 2px;
-    font-weight: 400;
-    color: #777;
-    font-size: 17px;
-    line-height: 100%;
-    display: inline-block;
-  }
-}
 </style>
