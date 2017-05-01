@@ -3,7 +3,7 @@
     <div class="task clearfix" v-for="task in tasks" @click="showSlide(task.id,task.name)">
       <div class="task-title-container" :class="{completed:task.is_solved}">
         <div class="radio-box">
-          <input type="checkbox" v-model="task.is_solved" @click="changeSolved(task.id)">
+          <input type="checkbox" v-model="task.is_solved" @click="changeSolved(task.id,task.is_solved)">
         </div>
         <div class="task-title">{{ task.name }}</div>
         <div class="task-badges" v-if="!isProject">

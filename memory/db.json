@@ -10,7 +10,8 @@
     "Person_has_group": 15,
     "Project": 3,
     "Task_group": 3,
-    "Task": 3
+    "Task": 3,
+    "Document": 3
   },
   "models": {
     "User": {},
@@ -54,6 +55,9 @@
     "Task": {
       "1": "{\"task_group_id\":1,\"task_group_name\":\"零度可乐\",\"description\":\"\",\"solve_person_info\":[{\"firstName\":\"王\",\"secondName\":\"庭旭\",\"name\":\"王庭旭\",\"headName\":\"庭旭\",\"phone\":\"1\",\"id\":1}],\"focus_person_info\":[{\"id\":1,\"headName\":\"庭旭\"}],\"dead_time\":\"\",\"tags\":[],\"name\":\"无糖饮品\",\"create_time\":\"1492943173633\",\"create_person_id\":\"1\",\"is_solved\":false,\"project_id\":\"1\",\"project_name\":\"提神醒脑\",\"id\":1}",
       "2": "{\"task_group_id\":1,\"task_group_name\":\"零度可乐\",\"description\":\"\",\"solve_person_info\":[{\"firstName\":\"王\",\"secondName\":\"庭旭\",\"name\":\"王庭旭\",\"headName\":\"庭旭\",\"phone\":\"1\",\"id\":1}],\"focus_person_info\":[{\"id\":1,\"headName\":\"庭旭\"}],\"dead_time\":\"\",\"tags\":[],\"name\":\"零度无忌\",\"create_time\":\"1492944160955\",\"create_person_id\":\"1\",\"is_solved\":false,\"project_id\":\"1\",\"project_name\":\"提神醒脑\",\"id\":2}"
+    },
+    "Document": {
+      "2": "{\"project_id\":1,\"title\":\"零度可乐可以提神的原因\",\"content\":\"<p>原因主要有以下几点</p>\\n<ul>\\n<li>咖啡因</li>\\n<li>二氧化碳注入</li>\\n</ul>\\n\",\"person_id\":1,\"person_name\":\"王庭旭\",\"create_time\":\"1493625710152\",\"id\":2}"
     }
   }
 }

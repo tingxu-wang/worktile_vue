@@ -77,7 +77,9 @@ export default {
           return {
             iconName:'glyphicon-folder-open',
             title:this.$route.params.projectName,
-            menuItems:[]
+            menuItems:[
+              {name:'文档',routerName:'document'}
+            ]
           }
           break;
       }
@@ -85,7 +87,8 @@ export default {
   },
   methods:{
     isActive (itemRouterName){
-      if(this.$store.state.thirdRouterName===itemRouterName){
+      let routerLevel=this.$store.state.routerLevel
+      if(routerLevel[routerLevel.length-1]===itemRouterName){
         return true
       }
       return false

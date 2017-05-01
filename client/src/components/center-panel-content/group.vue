@@ -63,7 +63,7 @@ export default {
         this.$post('/api/Projects',infoObj)
           .then(body=>{
             this.projectArr.push(body)
-            this.hideModal()
+            this.$hideModal()
             this.projectName=''
             this.projectDescription=''
           })

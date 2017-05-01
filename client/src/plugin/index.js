@@ -84,6 +84,20 @@ MyPlugin.install=function(Vue){
       })
   }
 
+  _this.$delete=function(url){
+    return this.$http.delete(url)
+    .then(({status,body,code})=>{
+      if(status===200){
+        return body
+      }else{
+        throw new Error(`服务器出现错误！status:${status},code:${code},url:${url}`)
+      }
+    })
+    .catch(err=>{
+      throw new Error(err)
+    })
+  }
+
   _this.$paramsGet=function(url,params){
     return this.$http.get(url,{params})
       .then(({status,body,code})=>{
